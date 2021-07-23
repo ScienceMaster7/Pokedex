@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   overflow-y: scroll;
   margin-bottom: 56px;
+  padding: 10px;
 }
 .Pokemon__content__card {
   padding: 5px 15px;
