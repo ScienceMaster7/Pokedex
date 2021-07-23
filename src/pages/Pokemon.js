@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
+import { useRef } from "react/cjs/react.development";
 import "./Pokemon.css";
 
 export default function Pokemon({ Link }) {
   const [pagecount, setPagecount] = useState(0);
   const [pokemonlist, setPokemonlist] = useState([]);
-  const [nextpage, setNextpage] = useState("https://pokeapi.co/api/v2/pokemon");
+  const nextpage = useRef("https://pokeapi.co/api/v2/pokemon");
   useEffect(() => {
-    const url = nextpage;
+    const url = nextpage.current;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setPokemonlist(data.results);
-        setNextpage(data.next);
+        nextpage.current = data.next;
       });
   }, [pagecount]);
   function Renderpokemonlist() {
@@ -30,7 +31,6 @@ export default function Pokemon({ Link }) {
   function HandleLoadMoreClick() {
     setPagecount(pagecount + 1);
   }
-  console.log(pagecount);
   return (
     <>
       <header className="Pokemon__header">
