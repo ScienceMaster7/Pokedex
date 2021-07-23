@@ -10,9 +10,11 @@
   bottom: 0;
   width: 100%;
   background-color: beige;
-  padding: 1.5rem;
+  padding: 10px;
 }
 
-a {
+.Home__footer__icon {
   text-decoration: none;
+  color: darkcyan;
+  font-size: 30px;
 }
