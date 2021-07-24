@@ -1,4 +1,30 @@
+.pokemon__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: chartreuse;
+  height: 100vh;
+}
+
+.pokemon__header {
+  position: fixed;
+  top: 10px;
+}
+
 .pokemon__img--big {
   height: 200px;
   width: 200px;
+}
+
+.pokemon__button__container {
+  position: fixed;
+  bottom: 60px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.pokemon__button__singlebutton {
+  margin: 5px;
+  padding: 5px;
 }
