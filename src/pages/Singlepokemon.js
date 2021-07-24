@@ -17,7 +17,6 @@ export default function Singlepokemon() {
         setIsloading(false);
       });
   }, [id]);
-
   function Renderpokemon() {
     let history = useHistory();
     function goback() {
@@ -32,7 +31,12 @@ export default function Singlepokemon() {
     if (isloading || pokemon === null) {
       return "Loading...";
     }
-
+    function Pokemontypes() {
+      const types = pokemon.types.map((pokemontype) => {
+        return pokemontype.type.name;
+      });
+      return types;
+    }
     return (
       <section className="pokemon__container">
         <h1 className="pokemon__header">{pokemon.name}</h1>
@@ -41,6 +45,10 @@ export default function Singlepokemon() {
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt=""
         />
+
+        <p>
+          <strong>Type:</strong> <Pokemontypes />
+        </p>
 
         <div className="pokemon__button__container">
           {id > 1 && (
