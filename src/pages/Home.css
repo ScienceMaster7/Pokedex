@@ -1,0 +1,13 @@
+.Pokedex__nav {
+  margin: 5px;
+  padding: 5px;
+}
+.Pokedex__nav__link {
+  text-decoration: none;
+  color: darkcyan;
+}
+
+.Pokedex__nav__link:hover {
+  padding: 5px;
+  background-color: whitesmoke;
+}

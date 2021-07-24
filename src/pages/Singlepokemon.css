@@ -17,6 +17,14 @@
   width: 200px;
 }
 
+.pokemon__button__favourite {
+  height: 45px;
+  width: 45px;
+  font-size: 30px;
+  background-color: gold;
+  margin: 10px;
+}
+
 .pokemon__button__container {
   position: fixed;
   bottom: 60px;
@@ -27,4 +35,8 @@
 .pokemon__button__singlebutton {
   margin: 5px;
   padding: 5px;
+}
+
+.pokemon__button__singlebutton:hover {
+  cursor: pointer;
 }
