@@ -40,20 +40,22 @@ export default function Singlepokemon() {
       return types;
     }
     function handleOnClickFavouriteButton() {
+      const nameandimage = {
+        name: pokemon.name,
+        img: pokemon.sprites.other["official-artwork"].front_default,
+      };
       const storage = localStorage.getItem("pokemonstorage");
       if (storage !== null) {
-        console.log("pushed to array");
         const storedpokemon = storage;
         const favouritepokemon = JSON.parse(storedpokemon);
-        favouritepokemon.push(id);
+        favouritepokemon.push(nameandimage);
         localStorage.setItem(
           "pokemonstorage",
           JSON.stringify(favouritepokemon)
         );
       } else {
-        console.log("new array created");
         const favouritepokemon = [];
-        favouritepokemon.push(id);
+        favouritepokemon.push(nameandimage);
         localStorage.setItem(
           "pokemonstorage",
           JSON.stringify(favouritepokemon)
