@@ -1,6 +1,8 @@
 .favourite__content {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .favourite__card {

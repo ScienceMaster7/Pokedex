@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { faStar as solidstar } from "@fortawesome/free-solid-svg-icons";
 import "./Singlepokemon.css";
 
 export default function Singlepokemon() {
@@ -35,11 +36,19 @@ export default function Singlepokemon() {
     }
     function Pokemontypes() {
       const types = pokemon.types.map((pokemontype) => {
-        return ` ${pokemontype.type.name}`;
+        return <li>{pokemontype.type.name}</li>;
       });
       return types;
     }
+    function Pokemonabilities() {
+      const abilities = pokemon.abilities.map((pokemonability) => {
+        return <li>{pokemonability.ability.name}</li>;
+      });
+      return abilities;
+    }
+    let favoriteiconsolid = false;
     function handleOnClickFavouriteButton() {
+      favoriteiconsolid = true;
       const nameandimage = {
         name: pokemon.name,
         img: pokemon.sprites.other["official-artwork"].front_default,
@@ -71,14 +80,24 @@ export default function Singlepokemon() {
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt=""
         />
-        <p>
-          <strong>Type:</strong> <Pokemontypes />
+        <p className="pokemon__paragraph__abilities">
+          <strong>Type</strong>
         </p>
+        <ul>
+          <Pokemontypes />
+        </ul>
+        <p className="pokemon__paragraph__abilities">
+          <strong>Abilities</strong>
+        </p>
+        <ul>
+          <Pokemonabilities />
+        </ul>
         <button
           onClick={handleOnClickFavouriteButton}
           className="pokemon__button__favourite"
         >
-          <FontAwesomeIcon icon={faStar} />
+          {favoriteiconsolid === false && <FontAwesomeIcon icon={faStar} />}
+          {favoriteiconsolid === true && <FontAwesomeIcon icon={solidstar} />}
         </button>
         <div className="pokemon__button__container">
           {id > 1 && (

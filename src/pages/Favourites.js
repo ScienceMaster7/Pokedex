@@ -2,11 +2,9 @@ import "./Favourites.css";
 export default function Favourites() {
   const pokemons = localStorage.getItem("pokemonstorage");
   const pokemonsarray = JSON.parse(pokemons);
-  console.log(pokemonsarray);
 
   function Renderfavourites() {
     const renderedpokemon = pokemonsarray.map((nameandpicture) => {
-      console.log(nameandpicture.img);
       return (
         <section className="favourite__card">
           <h2 className="favourite__card__name">{nameandpicture.name}</h2>
