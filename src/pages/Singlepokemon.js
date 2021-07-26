@@ -3,7 +3,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
-import { faStar as solidstar } from "@fortawesome/free-solid-svg-icons";
+import toast, { Toaster } from "react-hot-toast";
+import { v4 as uuidv4 } from "uuid";
 import "./Singlepokemon.css";
 
 export default function Singlepokemon() {
@@ -36,19 +37,17 @@ export default function Singlepokemon() {
     }
     function Pokemontypes() {
       const types = pokemon.types.map((pokemontype) => {
-        return <li>{pokemontype.type.name}</li>;
+        return <li key={uuidv4()}>{pokemontype.type.name}</li>;
       });
       return types;
     }
     function Pokemonabilities() {
       const abilities = pokemon.abilities.map((pokemonability) => {
-        return <li>{pokemonability.ability.name}</li>;
+        return <li key={uuidv4()}>{pokemonability.ability.name}</li>;
       });
       return abilities;
     }
-    let favoriteiconsolid = false;
     function handleOnClickFavouriteButton() {
-      favoriteiconsolid = true;
       const nameandimage = {
         name: pokemon.name,
         img: pokemon.sprites.other["official-artwork"].front_default,
@@ -70,6 +69,12 @@ export default function Singlepokemon() {
           JSON.stringify(favouritepokemon)
         );
       }
+      toast.success(
+        "This pokemon has been succesfully added to your favorites",
+        {
+          duration: 4000,
+        }
+      );
     }
 
     return (
@@ -96,9 +101,9 @@ export default function Singlepokemon() {
           onClick={handleOnClickFavouriteButton}
           className="pokemon__button__favourite"
         >
-          {favoriteiconsolid === false && <FontAwesomeIcon icon={faStar} />}
-          {favoriteiconsolid === true && <FontAwesomeIcon icon={solidstar} />}
+          <FontAwesomeIcon icon={faStar} />
         </button>
+        <Toaster />
         <div className="pokemon__button__container">
           {id > 1 && (
             <button
