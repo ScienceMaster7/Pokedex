@@ -1,7 +1,7 @@
 import "./Favourites.css";
 import { v4 as uuidv4 } from "uuid";
 export default function Favourites() {
-  const pokemons = localStorage.getItem("pokemonstorage");
+  const pokemons = localStorage.getItem("pokemonstorage") || 0;
   const pokemonsarray = JSON.parse(pokemons);
 
   function Renderfavourites() {

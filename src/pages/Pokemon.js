@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useRef } from "react/cjs/react.development";
+import { useEffect, useState, useRef } from "react";
 import "./Pokemon.css";
 import { v4 as uuidv4 } from "uuid";
 
