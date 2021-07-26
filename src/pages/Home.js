@@ -1,3 +1,4 @@
+import "./Home.css";
 export default function Home({ Link }) {
   return (
     <>
@@ -6,8 +7,15 @@ export default function Home({ Link }) {
       </header>
       <main>
         <section>
-          <nav>
-            <Link to="/pokemon">Pokemon</Link>
+          <nav className="Pokedex__nav">
+            <Link className="Pokedex__nav__link" to="/pokemon">
+              Pokemon
+            </Link>
+          </nav>
+          <nav className="Pokedex__nav">
+            <Link className="Pokedex__nav__link" to="/favourites">
+              Favourites
+            </Link>
           </nav>
         </section>
       </main>

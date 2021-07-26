@@ -1,0 +1,15 @@
+.favourite__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favourite__card {
+  background-color: chartreuse;
+  padding: 10px;
+  margin: 10px;
+}
+
+.favourite__card__image {
+  height: 200px;
+  width: 200px;
+}

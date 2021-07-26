@@ -18,3 +18,7 @@
   color: darkcyan;
   font-size: 30px;
 }
+
+.Home__footer__icon:hover {
+  transform: scale(1.2, 1.2);
+}

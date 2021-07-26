@@ -6,6 +6,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Pokemon from "./pages/Pokemon";
 import Singlepokemon from "./pages/Singlepokemon";
+import Favourites from "./pages/Favourites";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/pokemon">
             <Pokemon Link={Link} />
+          </Route>
+          <Route path="/favourites">
+            <Favourites Link={Link} />
           </Route>
           <Route path="/">
             <Home Link={Link} />
