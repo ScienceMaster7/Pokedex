@@ -1,14 +1,13 @@
 import "./Favourites.css";
+import { v4 as uuidv4 } from "uuid";
 export default function Favourites() {
-  const pokemons = localStorage.getItem("pokemonstorage");
+  const pokemons = localStorage.getItem("pokemonstorage") || 0;
   const pokemonsarray = JSON.parse(pokemons);
-  console.log(pokemonsarray);
 
   function Renderfavourites() {
     const renderedpokemon = pokemonsarray.map((nameandpicture) => {
-      console.log(nameandpicture.img);
       return (
-        <section className="favourite__card">
+        <section key={uuidv4()} className="favourite__card">
           <h2 className="favourite__card__name">{nameandpicture.name}</h2>
           <img
             className="favourite__card__image"

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useRef } from "react/cjs/react.development";
+import { useEffect, useState, useRef } from "react";
 import "./Pokemon.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -23,9 +22,13 @@ export default function Pokemon({ Link }) {
         id = id + pagecount * 20;
       }
       return (
-        <Link to={`/pokemon/${id}`} className="Pokemon__content__link">
+        <Link
+          key={uuidv4()}
+          to={`/pokemon/${id}`}
+          className="Pokemon__content__link"
+        >
           <section className="Pokemon__content__card">
-            <h2 key={uuidv4()}>{pokemon.name}</h2>
+            <h2>{pokemon.name}</h2>
           </section>
         </Link>
       );

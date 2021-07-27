@@ -17,12 +17,22 @@
   width: 200px;
 }
 
+.pokemon__paragraph__abilities {
+  text-decoration: underline;
+  margin: 5px;
+}
+
 .pokemon__button__favourite {
   height: 45px;
   width: 45px;
   font-size: 30px;
   background-color: gold;
   margin: 10px;
+}
+
+.pokemon__button__favourite:hover {
+  cursor: pointer;
+  transform: scale(1.2, 1.2);
 }
 
 .pokemon__button__container {

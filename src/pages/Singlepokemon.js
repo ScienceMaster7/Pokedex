@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
+import toast, { Toaster } from "react-hot-toast";
+import { v4 as uuidv4 } from "uuid";
 import "./Singlepokemon.css";
 
 export default function Singlepokemon() {
@@ -35,9 +36,15 @@ export default function Singlepokemon() {
     }
     function Pokemontypes() {
       const types = pokemon.types.map((pokemontype) => {
-        return ` ${pokemontype.type.name}`;
+        return <li key={uuidv4()}>{pokemontype.type.name}</li>;
       });
       return types;
+    }
+    function Pokemonabilities() {
+      const abilities = pokemon.abilities.map((pokemonability) => {
+        return <li key={uuidv4()}>{pokemonability.ability.name}</li>;
+      });
+      return abilities;
     }
     function handleOnClickFavouriteButton() {
       const nameandimage = {
@@ -61,6 +68,12 @@ export default function Singlepokemon() {
           JSON.stringify(favouritepokemon)
         );
       }
+      toast.success(
+        "This pokemon has been succesfully added to your favorites",
+        {
+          duration: 4000,
+        }
+      );
     }
 
     return (
@@ -71,15 +84,25 @@ export default function Singlepokemon() {
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt=""
         />
-        <p>
-          <strong>Type:</strong> <Pokemontypes />
+        <p className="pokemon__paragraph__abilities">
+          <strong>Type</strong>
         </p>
+        <ul>
+          <Pokemontypes />
+        </ul>
+        <p className="pokemon__paragraph__abilities">
+          <strong>Abilities</strong>
+        </p>
+        <ul>
+          <Pokemonabilities />
+        </ul>
         <button
           onClick={handleOnClickFavouriteButton}
           className="pokemon__button__favourite"
         >
           <FontAwesomeIcon icon={faStar} />
         </button>
+        <Toaster />
         <div className="pokemon__button__container">
           {id > 1 && (
             <button
